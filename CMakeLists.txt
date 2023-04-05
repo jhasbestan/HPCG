@@ -19,8 +19,8 @@ endwhile()
 
 set(AVX512 mavx512f)
 set(Common_C_FLAGS "${Common_C_FLAGS} -Wall -Wno-deprecated")
-set(RELEASE_FLAGS "${Common_C_FLAGS} -O3 -march=skylake-avx512 -qopt-zmm-usage=high -fp-model fast=2 -no-prec-div")
-set(RELEASE_FLAGS "${Common_C_FLAGS} -O3 -march=skylake-avx512 -fp-model fast=2 -no-prec-div")
+set(CMAKE_CXX_FLAGS_RELEASE "${Common_C_FLAGS} -O3 -march=skylake-avx512 -qopt-zmm-usage=high -fp-model fast=2 -no-prec-div -fopenmp -DNDEBUG")
+#set(CMAKE_RELEASE_FLAGS "${Common_C_FLAGS} -O3 -march=skylake-avx512 -fp-model fast=2 -no-prec-div")
 
 find_package(MYMPI REQUIRED)
 include_directories(${MPI_INCLUDES})
